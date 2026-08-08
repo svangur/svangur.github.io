@@ -1,0 +1,113 @@
+{{- /* The one and only browse surface: weekly meal plan on top, then the
+full recipe grid with client-side search (Fuse.js over index.json),
+multi-select tag chips (AND semantics), and sorting — newest first by
+default, so the page works without JS. /recipes/ redirects here. Fuse tuning
+comes from [params.fuseOpts]. */ -}}
+{{- define "main" }}
+<div class="home-browse">
+  {{- partial "meal_plan.html" . }}
+
+  <div class="recipe-toolbar">
+    <input type="search" id="recipe-search" placeholder="Search recipes, ingredients&hellip;" autocomplete="off">
+    <label>Sort
+      <select id="sort-sel">
+        <option value="newest">Newest</option>
+        <option value="oldest">Oldest</option>
+        <option value="title">A&ndash;Z</option>
+        <option value="time">Quickest</option>
+        <option value="kcal">Lowest calories</option>
+      </select>
+    </label>
+    <span id="recipe-count"></span>
+  </div>
+
+  <div class="filter-chips">
+    {{- range (site.GetPage "/tags").Pages.ByTitle }}
+    <button type="button" class="recipe-chip filter-chip" data-tag="{{ lower .Title }}">{{ .Title }}</button>
+    {{- end }}
+  </div>
+
+  <div class="recipe-grid" id="recipe-grid">
+    {{- range (where site.RegularPages "Type" "recipes").ByDate.Reverse }}
+    {{- partial "recipe_card.html" . }}
+    {{- end }}
+  </div>
+</div>
+{{- $fusejs := resources.Get "js/fuse.basic.min.js" }}
+<script src="{{ $fusejs.RelPermalink }}"></script>
+<script>
+  (function () {
+    var grid = document.getElementById('recipe-grid');
+    var cards = Array.prototype.slice.call(grid.querySelectorAll('.home-card'));
+    var input = document.getElementById('recipe-search');
+    var cmps = {
+      newest: function (a, b) { return b.dataset.date - a.dataset.date; },
+      oldest: function (a, b) { return a.dataset.date - b.dataset.date; },
+      title: function (a, b) { return a.dataset.title < b.dataset.title ? -1 : 1; },
+      time: function (a, b) { return (+a.dataset.time || 1e9) - (+b.dataset.time || 1e9); },
+      kcal: function (a, b) { return (+a.dataset.kcal || 1e9) - (+b.dataset.kcal || 1e9); }
+    };
+    var fuse = null;
+    var matched = null; // Set of permalinks, or null when no active query
+
+    // Same tuning as the config; Hugo lowercases the param keys
+    var raw = {{ site.Params.fuseOpts | jsonify | safeJS }} || {};
+    fetch('{{ "index.json" | relURL }}')
+      .then(function (r) { return r.json(); })
+      .then(function (data) {
+        fuse = new Fuse(data, {
+          threshold: raw.threshold != null ? raw.threshold : 0.25,
+          ignoreLocation: raw.ignorelocation != null ? raw.ignorelocation : true,
+          minMatchCharLength: raw.minmatchcharlength || 2,
+          keys: raw.keys || ['title', 'ingredients', 'tags', 'summary', 'content']
+        });
+        runSearch();
+      });
+
+    function activeTags() {
+      return Array.prototype.map.call(
+        document.querySelectorAll('.filter-chip.active'),
+        function (b) { return b.dataset.tag; });
+    }
+
+    function apply() {
+      var tags = activeTags();
+      var sorted = cards.slice().sort(cmps[document.getElementById('sort-sel').value] || cmps.newest);
+      var n = 0;
+      sorted.forEach(function (c) {
+        var ctags = c.dataset.tags.toLowerCase().split('|');
+        var show = (!matched || matched.has(c.href))
+          && tags.every(function (t) { return ctags.indexOf(t) > -1; });
+        c.style.display = show ? '' : 'none';
+        if (show) n++;
+        grid.appendChild(c);
+      });
+      document.getElementById('recipe-count').textContent = n + (n === 1 ? ' recipe' : ' recipes');
+    }
+
+    function runSearch() {
+      var q = input.value.trim();
+      matched = (q && fuse)
+        ? new Set(fuse.search(q).map(function (r) { return r.item.permalink; }))
+        : null;
+      apply();
+    }
+
+    var deb;
+    input.addEventListener('input', function () {
+      clearTimeout(deb);
+      deb = setTimeout(runSearch, 120);
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('.filter-chip'), function (b) {
+      b.addEventListener('click', function () {
+        b.classList.toggle('active');
+        apply();
+      });
+    });
+
+    document.getElementById('sort-sel').addEventListener('change', apply);
+    apply();
+  })();
+</script>
+{{- end }}{{- /* end main */ -}}

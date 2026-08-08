@@ -1,0 +1,24 @@
+{{- with .Params.ingredients }}
+{{- /* Grouped form (list of {name, items}) and flat form (list of strings)
+are decided by the first entry — mixing the two in one recipe isn't
+supported. */ -}}
+<div class="recipe-ingredients">
+  <h2>Ingredients</h2>
+  {{- if reflect.IsMap (index . 0) }}
+  {{- range . }}
+  <h3>{{ .name }}</h3>
+  <ul>
+    {{- range .items }}
+    <li><label><input type="checkbox"><span>{{ . }}</span></label></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+  {{- else }}
+  <ul>
+    {{- range . }}
+    <li><label><input type="checkbox"><span>{{ . }}</span></label></li>
+    {{- end }}
+  </ul>
+  {{- end }}
+</div>
+{{- end }}

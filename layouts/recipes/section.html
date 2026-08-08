@@ -1,0 +1,13 @@
+{{- /* /recipes/ merged into the home page — this renders a plain redirect
+(same shape as Hugo's alias template) so old links and the breadcrumb trail
+keep working. */ -}}
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}">
+<head>
+  <title>{{ site.Home.Permalink }}</title>
+  <link rel="canonical" href="{{ site.Home.Permalink }}">
+  <meta name="robots" content="noindex">
+  <meta charset="utf-8">
+  <meta http-equiv="refresh" content="0; url={{ site.Home.Permalink }}">
+</head>
+</html>

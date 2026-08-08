@@ -1,0 +1,35 @@
+{{- /* schema.org Recipe JSON-LD — this is what makes Google eligible to show
+the recipe as a rich result (photo, cook time, calories) in search. */ -}}
+{{- $schema := dict
+  "@context" "https://schema.org"
+  "@type" "Recipe"
+  "name" .Title
+  "datePublished" (.Date.Format "2006-01-02")
+}}
+{{- with .Description }}{{ $schema = merge $schema (dict "description" .) }}{{ end }}
+{{- with site.Params.author }}{{ $schema = merge $schema (dict "author" (dict "@type" "Person" "name" .)) }}{{ end }}
+{{- with .Params.prepTime }}{{ $schema = merge $schema (dict "prepTime" (printf "PT%dM" (int .))) }}{{ end }}
+{{- with .Params.cookTime }}{{ $schema = merge $schema (dict "cookTime" (printf "PT%dM" (int .))) }}{{ end }}
+{{- if and .Params.prepTime .Params.cookTime }}
+{{- $schema = merge $schema (dict "totalTime" (printf "PT%dM" (add (int .Params.prepTime) (int .Params.cookTime)))) }}
+{{- end }}
+{{- with .Params.servings }}{{ $schema = merge $schema (dict "recipeYield" (printf "%v servings" .)) }}{{ end }}
+{{- $n := .Params.nutrition | default dict }}
+{{- $nut := dict "@type" "NutritionInformation" }}
+{{- with or $n.calories .Params.calories }}{{ $nut = merge $nut (dict "calories" (printf "%v calories" .)) }}{{ end }}
+{{- with $n.protein }}{{ $nut = merge $nut (dict "proteinContent" (printf "%v g" .)) }}{{ end }}
+{{- with $n.carbs }}{{ $nut = merge $nut (dict "carbohydrateContent" (printf "%v g" .)) }}{{ end }}
+{{- with $n.fat }}{{ $nut = merge $nut (dict "fatContent" (printf "%v g" .)) }}{{ end }}
+{{- with $n.fiber }}{{ $nut = merge $nut (dict "fiberContent" (printf "%v g" .)) }}{{ end }}
+{{- with $n.sugar }}{{ $nut = merge $nut (dict "sugarContent" (printf "%v g" .)) }}{{ end }}
+{{- with $n.sodium }}{{ $nut = merge $nut (dict "sodiumContent" (printf "%v mg" .)) }}{{ end }}
+{{- if gt (len $nut) 1 }}{{ $schema = merge $schema (dict "nutrition" $nut) }}{{ end }}
+{{- with .Params.tags }}{{ $schema = merge $schema (dict "keywords" (delimit . ", ")) }}{{ end }}
+{{- with (partial "functions/flat-ingredients.html" .) }}{{ $schema = merge $schema (dict "recipeIngredient" .) }}{{ end }}
+{{- with .Params.cover.image }}
+{{- $imgURL := absURL . }}
+{{- with ($.Resources.ByType "image").GetMatch (printf "*%s*" .) }}{{ $imgURL = .Permalink }}{{ end }}
+{{- $schema = merge $schema (dict "image" $imgURL) }}
+{{- end }}
+{{- with .Plain }}{{ $schema = merge $schema (dict "recipeInstructions" (. | htmlUnescape | chomp)) }}{{ end }}
+<script type="application/ld+json">{{ $schema | jsonify | safeJS }}</script>

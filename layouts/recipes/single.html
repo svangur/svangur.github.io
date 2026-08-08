@@ -1,0 +1,86 @@
+{{- /* Custom two-column recipe layout: split hero (info | photo), then a
+sticky ingredients card beside the method column. Originally derived from
+PaperMod's single.html but intentionally divergent now — after theme updates
+only the shared partials (breadcrumbs, cover, post_meta, anchored_headings,
+share_icons…) need to keep working, not the page structure. */ -}}
+{{- define "main" }}
+
+<article class="post-single recipe-page">
+  {{- $hasCover := .Params.cover.image }}
+  <div class="recipe-hero{{ if not $hasCover }} recipe-hero-nomedia{{ end }}">
+    <header class="recipe-hero-info post-header">
+      <h1 class="post-title entry-hint-parent">
+        {{- .Title }}
+        {{- if .Draft }} <span class="recipe-draft-hint">Draft</span>{{ end }}
+      </h1>
+      {{- with .Description }}
+      <div class="post-description">{{ . }}</div>
+      {{- end }}
+      {{- partial "recipe_meta.html" . }}
+      {{- if not (.Param "hideMeta") }}
+      <div class="post-meta">
+        {{- partial "post_meta.html" . -}}
+        {{- partial "translation_list.html" . -}}
+      </div>
+      {{- end }}
+    </header>
+    {{- if $hasCover }}
+    <div class="recipe-hero-media">
+      {{- partial "cover.html" (dict "cxt" . "IsSingle" true "isHidden" false) }}
+    </div>
+    {{- end }}
+  </div>
+
+  <div class="recipe-columns">
+    <aside class="recipe-ingredients-col" id="ingredients">
+      {{- if .Params.nutrition }}
+      {{- /* CSS-only tabs: hidden radios drive which panel is visible. */}}
+      <div class="recipe-tabs">
+        <input type="radio" name="recipe-tab" id="tab-ingredients" checked>
+        <input type="radio" name="recipe-tab" id="tab-nutrition">
+        <div class="recipe-tab-labels">
+          <label for="tab-ingredients">Ingredients</label>
+          <label for="tab-nutrition">Nutrition</label>
+        </div>
+        <div class="recipe-tab-panel recipe-tab-panel-ingredients">
+          {{- partial "recipe_ingredients.html" . }}
+        </div>
+        <div class="recipe-tab-panel recipe-tab-panel-nutrition">
+          {{- partial "recipe_nutrition.html" . }}
+        </div>
+      </div>
+      {{- else }}
+      {{- partial "recipe_ingredients.html" . }}
+      {{- end }}
+      {{- partial "recipe_mealprep.html" . }}
+    </aside>
+    <div class="recipe-method-col">
+      {{- if (.Param "ShowToc") }}
+      {{- partial "toc.html" . }}
+      {{- end }}
+      {{- if .Content }}
+      <div class="post-content md-content">
+        {{- if not (.Param "disableAnchoredHeadings") }}
+        {{- partial "anchored_headings.html" .Content -}}
+        {{- else }}{{ .Content }}{{ end }}
+      </div>
+      {{- end }}
+      {{- partial "extend_post_content.html" . }}
+    </div>
+  </div>
+
+  {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
+  <footer class="post-footer">
+    {{- partial "share_icons.html" . -}}
+  </footer>
+  {{- end }}
+
+  {{- if (.Param "comments") }}
+  {{- partial "comments.html" . }}
+  {{- end }}
+</article>
+{{- if .Params.servings }}
+{{- partial "recipe_scaler.html" . }}
+{{- end }}
+
+{{- end }}{{/* end main */}}

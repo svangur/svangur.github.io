@@ -1,0 +1,22 @@
+{{- /* "Storage & Reheating" card for batch-cooking recipes, rendered from
+the optional .Params.mealprep block. All fields optional free-text. */ -}}
+{{- $mp := .Params.mealprep }}
+{{- if $mp }}
+<div class="mealprep-card">
+  <h2>Storage &amp; Reheating</h2>
+  <dl class="mealprep-grid">
+    {{- with $mp.yields }}
+    <div><dt>Yields</dt><dd>{{ . }}</dd></div>
+    {{- end }}
+    {{- with $mp.fridge }}
+    <div><dt>Fridge</dt><dd>{{ . }}</dd></div>
+    {{- end }}
+    {{- with $mp.freezer }}
+    <div><dt>Freezer</dt><dd>{{ . }}</dd></div>
+    {{- end }}
+    {{- with $mp.reheat }}
+    <div class="mealprep-wide"><dt>Reheat</dt><dd>{{ . }}</dd></div>
+    {{- end }}
+  </dl>
+</div>
+{{- end }}

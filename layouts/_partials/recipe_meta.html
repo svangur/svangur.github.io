@@ -1,0 +1,33 @@
+{{- /* Hero meta block: servings scaler, time / calories lines, and linked
+tag chips. */ -}}
+{{- $n := .Params.nutrition | default dict }}
+{{- $prep := .Params.prepTime }}
+{{- $cook := .Params.cookTime }}
+<div class="recipe-meta">
+  {{- with .Params.servings }}
+  <div class="recipe-meta-line servings-control" data-base="{{ . }}">Serves:
+    <span class="stepper">
+      <button type="button" class="servings-minus" aria-label="Decrease servings">&minus;</button>
+      <input id="servings-input" type="text" inputmode="decimal" value="{{ . }}" aria-label="Servings">
+      <button type="button" class="servings-plus" aria-label="Increase servings">+</button>
+    </span>
+  </div>
+  {{- end }}
+  {{- if or $prep $cook }}
+  <div class="recipe-meta-line">Time: {{ add (int ($prep | default 0)) (int ($cook | default 0)) }} mins
+    {{- if and $prep $cook }} <span class="recipe-meta-sub">({{ $prep }} prep &middot; {{ $cook }} cook)</span>{{ end }}
+  </div>
+  {{- end }}
+  {{- with or $n.calories .Params.calories }}
+  <div class="recipe-meta-line">Calories: {{ . }} / portion</div>
+  {{- end }}
+  {{- with ($.GetTerms "tags") }}
+  <div class="recipe-meta-line recipe-chips-line">Tags:
+    <span class="recipe-chips">
+      {{- range . }}
+      <a class="recipe-chip" href="{{ .Permalink }}">{{ .LinkTitle }}</a>
+      {{- end }}
+    </span>
+  </div>
+  {{- end }}
+</div>

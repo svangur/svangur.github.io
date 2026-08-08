@@ -1,0 +1,95 @@
+{{- /* Client-side scaling, two independent controls:
+- Serves (hero): scales ingredient quantities and the label's whole-batch
+  total. Ingredient lines are scaled by rewriting their leading quantity
+  (number, decimal, a/b fraction, or a "2-3" range); lines with no leading
+  number are left alone. Never changes per-portion macros.
+- Eating N portion(s) (nutrition label): personal multiplier — label values
+  are per-portion × N.
+Both accept typed decimals. Schema.org output keeps base values. */ -}}
+<script>
+  (function () {
+    var ctrl = document.querySelector('.servings-control');
+    if (!ctrl) return;
+    var input = document.getElementById('servings-input');
+    var portionsInput = document.getElementById('portions-input');
+    var base = parseFloat(ctrl.getAttribute('data-base')) || 1;
+    var servings = base;
+    var eat = 1;
+
+    var ingSpans = Array.prototype.slice.call(
+      document.querySelectorAll('.recipe-ingredients li label span'));
+    ingSpans.forEach(function (s) { s.setAttribute('data-orig', s.textContent); });
+
+    var LEAD = /^(\d+(?:[.,]\d+)?(?:\s*\/\s*\d+)?)(\s*[–—-]\s*)?(\d+(?:[.,]\d+)?)?/;
+
+    function toNum(t) {
+      t = t.replace(',', '.');
+      var m = t.match(/^(\d+(?:\.\d+)?)\s*\/\s*(\d+)$/);
+      if (m) return parseFloat(m[1]) / parseFloat(m[2]);
+      return parseFloat(t);
+    }
+
+    function fmtQty(x) {
+      var r = x >= 10 ? Math.round(x * 10) / 10 : Math.round(x * 100) / 100;
+      return String(r);
+    }
+
+    function scaleLine(text, f) {
+      var m = text.match(LEAD);
+      if (!m || !m[1]) return text;
+      var out = fmtQty(toNum(m[1]) * f);
+      if (m[3]) out += (m[2] || '–') + fmtQty(toNum(m[3]) * f);
+      return out + text.slice(m[0].length);
+    }
+
+    function fmtMacro(x, dec) {
+      return dec === '1' && x < 100
+        ? String(Math.round(x * 10) / 10)
+        : String(Math.round(x));
+    }
+
+    function renderMacros() {
+      Array.prototype.forEach.call(document.querySelectorAll('.nutri-val'), function (el) {
+        var perBase = parseFloat(el.getAttribute('data-base'));
+        el.textContent = fmtMacro(perBase * eat, el.getAttribute('data-dec') || '0');
+      });
+      var bc = document.getElementById('batch-cal');
+      if (bc) bc.textContent = fmtMacro(parseFloat(bc.getAttribute('data-base')) * (servings / base), '0');
+    }
+
+    function render(fromTyping) {
+      var f = servings / base;
+      ingSpans.forEach(function (s) {
+        var orig = s.getAttribute('data-orig');
+        s.textContent = f === 1 ? orig : scaleLine(orig, f);
+      });
+      if (!fromTyping) input.value = fmtQty(servings);
+      renderMacros();
+    }
+
+    function on(sel, fn) {
+      Array.prototype.forEach.call(document.querySelectorAll(sel), function (b) {
+        b.addEventListener('click', fn);
+      });
+    }
+
+    function wireTyping(el, assign) {
+      el.addEventListener('input', function () {
+        var v = parseFloat(el.value.replace(',', '.'));
+        if (isFinite(v) && v > 0 && v < 1000) assign(v);
+      });
+    }
+
+    on('.servings-minus', function () { servings = Math.max(0.5, servings - 1); render(); });
+    on('.servings-plus', function () { servings++; render(); });
+    wireTyping(input, function (v) { servings = v; render(true); });
+    input.addEventListener('blur', function () { input.value = fmtQty(servings); });
+
+    if (portionsInput) {
+      on('.portions-minus', function () { eat = Math.max(0.5, eat - 0.5); portionsInput.value = fmtQty(eat); renderMacros(); });
+      on('.portions-plus', function () { eat += 0.5; portionsInput.value = fmtQty(eat); renderMacros(); });
+      wireTyping(portionsInput, function (v) { eat = v; renderMacros(); });
+      portionsInput.addEventListener('blur', function () { portionsInput.value = fmtQty(eat); });
+    }
+  })();
+</script>

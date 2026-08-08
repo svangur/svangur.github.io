@@ -1,0 +1,25 @@
+{{- /* Compact photo card for one recipe. Context: the recipe page. The
+data-* attributes power client-side sort/filter on the /recipes/ browse
+page. */ -}}
+{{- $n := .Params.nutrition | default dict }}
+<a class="home-card" href="{{ .RelPermalink }}"
+  data-title="{{ lower .Title }}"
+  data-date="{{ .Date.Unix }}"
+  data-time="{{ add (int (.Params.prepTime | default 0)) (int (.Params.cookTime | default 0)) }}"
+  data-kcal="{{ or $n.calories .Params.calories }}"
+  data-tags="{{ delimit (.Params.tags | default slice) "|" }}">
+  {{- $img := "" }}
+  {{- with .Params.cover.image }}
+  {{- $img = (($.Resources.ByType "image").GetMatch (printf "*%s*" .)) }}
+  {{- end }}
+  {{- if $img }}
+  <img src="{{ ($img.Fill "480x360").RelPermalink }}" alt="" loading="lazy" width="240" height="180">
+  {{- else }}
+  <span class="home-card-noimg"></span>
+  {{- end }}
+  <span class="home-card-title">{{ .Title }}</span>
+  {{- $total := add (int (.Params.prepTime | default 0)) (int (.Params.cookTime | default 0)) }}
+  {{- if gt $total 0 }}
+  <span class="home-card-time">{{ $total }} min</span>
+  {{- end }}
+</a>

@@ -1,0 +1,42 @@
+{{- /* Classic nutrition-facts label from the per-serving values in
+.Params.nutrition (grams; sodium in mg; all optional). Values carry
+data-base/data-dec so the scaler script can recompute per-portion numbers;
+without JS the static per-serving values show. Row order follows the
+standard US label. */ -}}
+{{- $n := .Params.nutrition | default dict }}
+{{- if $n }}
+{{- $cal := or $n.calories .Params.calories }}
+<div class="nutrition-card">
+  <div class="nutrition-title">Nutrition Facts</div>
+  {{- if .Params.servings }}
+  <div class="nutrition-serving">Eating
+    <span class="stepper">
+      <button type="button" class="portions-minus" aria-label="Fewer portions">&minus;</button>
+      <input id="portions-input" type="text" inputmode="decimal" value="1" aria-label="Portions">
+      <button type="button" class="portions-plus" aria-label="More portions">+</button>
+    </span>
+    portion(s)
+  </div>
+  {{- else }}
+  <div class="nutrition-serving">Per serving</div>
+  {{- end }}
+  <div class="nutrition-rule nutrition-rule-thick"></div>
+  {{- with $cal }}
+  <div class="nutrition-calories">
+    <span>Calories</span><span class="nutri-val" data-base="{{ . }}" data-dec="0">{{ . }}</span>
+  </div>
+  <div class="nutrition-rule nutrition-rule-mid"></div>
+  {{- end }}
+  {{- with $n.fat }}<div class="nutrition-row"><span>Fat</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="1">{{ . }}</span> g</span></div>{{ end }}
+  {{- with $n.sodium }}<div class="nutrition-row"><span>Sodium</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="0">{{ . }}</span> mg</span></div>{{ end }}
+  {{- with $n.carbs }}<div class="nutrition-row"><span>Carbohydrates</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="1">{{ . }}</span> g</span></div>{{ end }}
+  {{- with $n.fiber }}<div class="nutrition-row nutrition-sub"><span>Fiber</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="1">{{ . }}</span> g</span></div>{{ end }}
+  {{- with $n.sugar }}<div class="nutrition-row nutrition-sub"><span>Sugar</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="1">{{ . }}</span> g</span></div>{{ end }}
+  {{- with $n.protein }}<div class="nutrition-row"><span>Protein</span><span><span class="nutri-val" data-base="{{ . }}" data-dec="1">{{ . }}</span> g</span></div>{{ end }}
+  <div class="nutrition-rule nutrition-rule-thick"></div>
+  {{- if and $cal .Params.servings }}
+  <div class="nutrition-batch">Whole batch &asymp; <span id="batch-cal" data-base="{{ mul $cal .Params.servings }}">{{ mul $cal .Params.servings }}</span> kcal</div>
+  {{- end }}
+  <div class="nutrition-note">Approximate values for the selected portions.</div>
+</div>
+{{- end }}

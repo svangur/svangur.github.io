@@ -1,0 +1,36 @@
+{{- /* Extends PaperMod's _markup/render-image.html: page-bundle photos wider
+than 720px are served as resized 720/1440px variants via srcset (so full-size
+phone photos never ship as-is), and a Markdown title —
+![alt](img.jpg "caption") — renders as a figure caption. */ -}}
+{{- $u := urls.Parse .Destination -}}
+{{- $src := $u.String -}}
+{{- $img := "" -}}
+{{- if not $u.IsAbs -}}
+  {{- $path := strings.TrimPrefix "./" $u.Path }}
+  {{- with or (.PageInner.Resources.Get $path) (resources.Get $path) -}}
+    {{- $img = . -}}
+    {{- $src = .RelPermalink -}}
+    {{- with $u.RawQuery -}}{{- $src = printf "%s?%s" $src . -}}{{- end -}}
+    {{- with $u.Fragment -}}{{- $src = printf "%s#%s" $src . -}}{{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $attrs := dict "alt" .Text "src" $src "loading" "lazy" -}}
+{{- if and $img (in (slice "jpg" "jpeg" "png" "webp" "tif" "bmp") $img.MediaType.SubType) -}}
+  {{- $full := $img -}}
+  {{- if gt $img.Width 1440 -}}{{- $full = $img.Resize "1440x" -}}{{- end -}}
+  {{- $small := $full -}}
+  {{- if gt $img.Width 720 -}}{{- $small = $img.Resize "720x" -}}{{- end -}}
+  {{- $attrs = merge $attrs (dict
+      "src" $small.RelPermalink
+      "srcset" (printf "%s 720w, %s %dw" $small.RelPermalink $full.RelPermalink $full.Width)
+      "sizes" "(min-width: 768px) 720px, 100vw"
+      "width" (string $full.Width)
+      "height" (string $full.Height)) -}}
+{{- end -}}
+{{- $attrs = merge $attrs .Attributes -}}
+<figure class="step-img">
+  {{- if $img }}<a href="{{ $img.RelPermalink }}" target="_blank" rel="noopener" aria-label="View full-size image">{{ end }}
+  <img {{- range $k, $v := $attrs -}}{{- if $v -}}{{- printf " %s=%q" $k $v | safeHTMLAttr -}}{{- end -}}{{- end -}}>
+  {{- if $img }}</a>{{ end }}
+  {{- with .Title }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

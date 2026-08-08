@@ -1,0 +1,70 @@
+# baseURL is a placeholder — the GitHub Actions workflow injects the real
+# Pages URL at build time, and `hugo server` ignores it locally.
+baseURL = 'https://example.org/'
+locale = 'en-us'
+title = 'Svangur'
+theme = 'PaperMod'
+
+enableRobotsTXT = true
+
+# Unlisted-site hardening: no feeds, no sitemap, and (via the cascade below +
+# layouts/robots.txt) noindex on every page — the site stays reachable by URL
+# but is not advertised to crawlers.
+disableKinds = ['rss', 'sitemap']
+
+[[cascade]]
+[cascade.params]
+robotsNoIndex = true
+
+[pagination]
+pagerSize = 12
+
+[markup.goldmark.parser]
+# Lets the image render hook emit <figure> without an invalid wrapping <p>,
+# and enables ![...](img.jpg){width=400}-style attributes on images.
+wrapStandAloneImageWithinParagraph = false
+[markup.goldmark.parser.attribute]
+block = true
+
+[outputs]
+# JSON output powers PaperMod's built-in Fuse.js search
+home = ['HTML', 'JSON']
+
+[taxonomies]
+tag = 'tags'
+
+[params]
+description = 'A collection of recipes'
+author = 'Rom'
+defaultTheme = 'auto'
+mainSections = ['recipes']
+ShowReadingTime = false
+ShowShareButtons = false
+ShowBreadCrumbs = true
+ShowCodeCopyButtons = false
+hideSummary = false
+
+[params.assets]
+favicon = 'favicon.svg'
+favicon16x16 = 'favicon-16.png'
+favicon32x32 = 'favicon-32.png'
+apple_touch_icon = 'apple-touch-icon.png'
+
+[params.label]
+icon = 'burger.svg'
+iconHeight = 26
+
+[params.fuseOpts]
+# Default threshold (0.4) is too fuzzy: "chick" matches "whisk" and "chili".
+threshold = 0.25
+minMatchCharLength = 2
+keys = [
+  { name = 'title', weight = 3 },
+  { name = 'ingredients', weight = 2.5 },
+  { name = 'tags', weight = 2 },
+  { name = 'summary', weight = 1 },
+  { name = 'content', weight = 0.5 },
+]
+
+# No menu — the home page is the single browse surface. Tag term pages stay
+# reachable through the chips on each recipe.

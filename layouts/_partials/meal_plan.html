@@ -1,0 +1,58 @@
+{{- /* Renders the week from data/mealplan.yaml whose 7-day window contains
+the BUILD date — the deploy workflow's Monday cron keeps that current. A slug
+that doesn't resolve to a recipe fails the build. "Today" is highlighted
+client-side so it stays correct between builds. */ -}}
+{{- $today := now }}
+{{- $current := dict }}
+{{- range hugo.Data.mealplan.weeks }}
+  {{- $start := .start }}
+  {{- if eq (printf "%T" $start) "string" }}{{ $start = time.AsTime $start }}{{ end }}
+  {{- $end := $start.AddDate 0 0 7 }}
+  {{- if and (ge $today.Unix $start.Unix) (lt $today.Unix $end.Unix) }}
+    {{- $current = (dict "start" $start "days" .days) }}
+  {{- end }}
+{{- end }}
+{{- with $current.days }}
+{{- $start := $current.start }}
+<div class="meal-plan">
+  <div class="meal-plan-header">
+    <span>This week's plan</span>
+    <span class="meal-plan-range">{{ $start.Format "Jan 2" }} &ndash; {{ ($start.AddDate 0 0 6).Format "Jan 2" }}</span>
+  </div>
+  <div class="meal-plan-days">
+    {{- $days := slice
+        (dict "key" "monday" "label" "Mon" "dow" 1)
+        (dict "key" "tuesday" "label" "Tue" "dow" 2)
+        (dict "key" "wednesday" "label" "Wed" "dow" 3)
+        (dict "key" "thursday" "label" "Thu" "dow" 4)
+        (dict "key" "friday" "label" "Fri" "dow" 5)
+        (dict "key" "saturday" "label" "Sat" "dow" 6)
+        (dict "key" "sunday" "label" "Sun" "dow" 0) }}
+    {{- $plan := . }}
+    {{- range $days }}
+    <div class="meal-plan-day" data-dow="{{ .dow }}">
+      <span class="meal-plan-dayname">{{ .label }}</span>
+      {{- with index $plan .key }}
+        {{- with $recipe := site.GetPage (printf "/recipes/%s" .) }}
+      <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+          {{- $total := add (int (.Params.prepTime | default 0)) (int (.Params.cookTime | default 0)) }}
+          {{- if gt $total 0 }}
+      <span class="meal-plan-time">{{ $total }} min</span>
+          {{- end }}
+        {{- else }}
+          {{- errorf "meal plan: no recipe found for %q (data/mealplan.yaml)" . }}
+        {{- end }}
+      {{- else }}
+      <span class="meal-plan-empty">&mdash;</span>
+      {{- end }}
+    </div>
+    {{- end }}
+  </div>
+</div>
+<script>
+  (function () {
+    var el = document.querySelector('.meal-plan-day[data-dow="' + new Date().getDay() + '"]');
+    if (el) el.classList.add('meal-plan-today');
+  })();
+</script>
+{{- end }}

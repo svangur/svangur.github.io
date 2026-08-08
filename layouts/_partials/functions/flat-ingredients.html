@@ -1,0 +1,13 @@
+{{- /* Returns .Params.ingredients as a flat string slice, whether the front
+matter uses the plain form (list of strings) or the grouped form (list of
+{name, items}). Used by the search index and the schema.org output, which
+both need ungrouped strings. */ -}}
+{{- $flat := slice -}}
+{{- range .Params.ingredients -}}
+  {{- if reflect.IsMap . -}}
+    {{- range .items -}}{{- $flat = $flat | append . -}}{{- end -}}
+  {{- else -}}
+    {{- $flat = $flat | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- return $flat -}}

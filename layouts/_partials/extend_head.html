@@ -1,0 +1,3 @@
+{{- if and (eq .Section "recipes") .IsPage }}
+{{- partial "recipe_schema.html" . }}
+{{- end }}

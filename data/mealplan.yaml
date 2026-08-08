@@ -1,0 +1,14 @@
+# Weekly meal plans, shown on the home page.
+#
+# - "start" must be a quoted Monday date ("YYYY-MM-DD"). The home page shows
+#   the week containing the build date; the deploy workflow rebuilds every
+#   Monday morning, so adding future weeks here makes them appear on schedule.
+# - Day values are recipe folder names from content/recipes/. Days can be
+#   omitted. A typo'd name fails the build.
+# - Old weeks can be deleted or kept as history — they're simply ignored.
+weeks:
+  - start: "2026-08-03"
+    days:
+      monday: spaghetti-aglio-e-olio
+      wednesday: chicken-fried-rice
+      sunday: classic-american-pancakes

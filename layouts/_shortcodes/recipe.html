@@ -1,0 +1,25 @@
+{{- /* Cross-reference card for another recipe: {{< recipe "some-slug" >}}
+or {{< recipe "/recipes/some-slug" >}}. A missing target fails the build. */ -}}
+{{- $ref := .Get 0 -}}
+{{- $target := or (site.GetPage $ref) (site.GetPage (printf "/recipes/%s" $ref)) -}}
+{{- with $target -}}
+<a class="recipe-ref" href="{{ .RelPermalink }}">
+  {{- with .Params.cover.image }}
+    {{- with ($target.Resources.ByType "image").GetMatch (printf "*%s*" .) }}
+  <img src="{{ (.Fill "240x160").RelPermalink }}" alt="" loading="lazy" width="120" height="80">
+    {{- end }}
+  {{- end }}
+  <span class="recipe-ref-body">
+    <span class="recipe-ref-title">{{ .Title }}</span>
+    {{- with .Description }}
+    <span class="recipe-ref-desc">{{ . }}</span>
+    {{- end }}
+    {{- $total := add (int (.Params.prepTime | default 0)) (int (.Params.cookTime | default 0)) }}
+    {{- if gt $total 0 }}
+    <span class="recipe-ref-time">{{ $total }} min</span>
+    {{- end }}
+  </span>
+</a>
+{{- else -}}
+{{- errorf "recipe shortcode: no recipe found for %q (used in %s)" $ref .Page.File.Path -}}
+{{- end -}}

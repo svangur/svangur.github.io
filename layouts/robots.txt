@@ -1,0 +1,4 @@
+{{- /* Shadows the theme's robots.txt, which allows crawling in production
+and advertises a sitemap. This site is intentionally unlisted. */ -}}
+User-agent: *
+Disallow: /
