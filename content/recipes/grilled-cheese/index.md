@@ -22,7 +22,6 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-
-# Lifesum
+1. Prepare ingredients as listed.
+2. Cook according to taste.
+3. Serve warm.

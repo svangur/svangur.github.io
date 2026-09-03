@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 2 chicken breast
 1/2 beikon
 250ml rjómi
@@ -24,6 +23,4 @@ ingredients:
 5x garlic
 10 lasagne plates
 2 tsp hveiti
-
-
 https://youtube.com/shorts/A6gXjkbPsjY?si=thoYUYMXU0mwS1L6

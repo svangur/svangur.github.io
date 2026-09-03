@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 - rifinn kjúlli 500gr
 - Pasta 400-500ml
 - Enchilada krydd

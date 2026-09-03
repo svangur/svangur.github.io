@@ -9,6 +9,9 @@ cookTime: 20
 servings: 3
 nutrition:
   calories: 870
+  protein: 25
+  fat: 37
+  sodium: 14
 tags: [dinner]
 cover:
   image: bell-pepper-pasta.jpg
@@ -24,9 +27,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] Gleymdi parmasan
 
 1) Skera papriku, lauk, hvítlauk
 2) Velta úr olíu, salt og pipar

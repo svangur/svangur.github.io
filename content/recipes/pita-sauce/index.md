@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 - Mayó 30gr.
 - Sýður 30gr.
 - Garlic 1 stk

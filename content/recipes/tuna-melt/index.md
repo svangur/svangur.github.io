@@ -9,6 +9,9 @@ cookTime: 15
 servings: 1
 nutrition:
   calories: 926
+  protein: 64
+  fat: 50
+  sodium: 1419
 tags: [dinner]
 cover:
   image: tuna-melt.jpg
@@ -31,15 +34,7 @@ ingredients:
 
 ## Instructions
 
-
 # Open faced spicy tuna melt
-
-
-> [!tip] Tips, tricks & ideas
-> Pizza "melt" fyrir Frosta
-
-# Mise en place
-
 1)  Mix all
 
    ![Open faced spicy tuna melt](tuna-melt-step2.jpg)
@@ -57,3 +52,7 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - Pizza "melt" fyrir Frosta

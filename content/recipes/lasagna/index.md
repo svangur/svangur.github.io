@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 # Bolognese from Hakk og Spagetti
 # Bechamel or Mornay
 - Butter 50gr.

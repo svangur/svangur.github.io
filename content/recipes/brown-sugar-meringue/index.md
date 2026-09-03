@@ -19,7 +19,6 @@ ingredients:
 
 ## Instructions
 
-
 - þeyta eggjahvítur aðeins
 - Bæta púðursykur útí rólega og halda áfram að þeyta
 - Þeyta þar til marengs er orðin stífur

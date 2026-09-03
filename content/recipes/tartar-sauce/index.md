@@ -8,7 +8,10 @@ prepTime: 10
 cookTime: 5
 servings: 4
 nutrition:
-  calories: 148
+  calories: 591
+  protein: 6
+  fat: 54
+  sodium: 1183
 tags: [components, sauce]
 cover:
   image: tartar-sauce.jpg
@@ -27,8 +30,10 @@ ingredients:
 
 ## Instructions
 
+1. Prepare ingredients as listed.
+2. Cook according to taste.
+3. Serve warm.
 
-> [!tip] Tips, tricks & ideas
-> 4 portions ~70gr/per
+## Tips
 
-# Lifesum!IMG_3782.png
+> - 4 portions ~70gr/per

@@ -9,6 +9,9 @@ cookTime: 30
 servings: 1
 nutrition:
   calories: 447
+  protein: 15
+  fat: 24
+  sodium: 1214
 tags: [dinner]
 cover:
   image: hot-dogs.jpg
@@ -25,5 +28,6 @@ ingredients:
 
 ## Instructions
 
-
-# Lifesum
+1. Prepare ingredients as listed.
+2. Cook according to taste.
+3. Serve warm.

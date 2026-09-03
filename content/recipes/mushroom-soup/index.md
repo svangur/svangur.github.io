@@ -9,6 +9,9 @@ cookTime: 5
 servings: 4
 nutrition:
   calories: 478
+  protein: 8
+  fat: 40
+  sodium: 1132
 tags: [dinner, soup]
 cover:
   image: mushroom-soup.jpg
@@ -24,17 +27,13 @@ ingredients:
   - "Rjómi 250 ml."
   - "Mjólk 250 ml."
   - "1 tbsp soya"
+mealprep:
+  yields: "2l"
+  fridge: "3–4 days"
+  freezer: "2–3 months"
 ---
 
 ## Instructions
-
-
-> [!tip] Tips, tricks & ideas
->  Minnka skammt?
->  RO: 1.5 portion? + 2 brauð ~1100 kcal
-
-# Mise en place
-
 
 1)  Steikja lauk uppúr olíu í ~5 mín
 2)  Bæta smjöri og leyfa að bráðan. 
@@ -47,3 +46,8 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - Minnka skammt?
+> - RO: 1.5 portion? + 2 brauð ~1100 kcal

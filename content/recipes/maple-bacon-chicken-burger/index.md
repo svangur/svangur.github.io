@@ -18,13 +18,11 @@ ingredients:
 
 ## Instructions
 
-
 - Marinade:
 	- 3 tbsp mayo (45gr)
 	- 1 tbsp soy (12gr.)
 	- 1 tbsp syrop (12gr.)
 	- Pepper to taste
-	
 - Burger sauce (A bit runny)
 	- 60gr. sour cream
 	- 60gr. mayo

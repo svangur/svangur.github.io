@@ -9,6 +9,9 @@ cookTime: 5
 servings: 1
 nutrition:
   calories: 1064
+  protein: 70
+  fat: 67
+  sodium: 1132
 tags: [dinner]
 cover:
   image: beef-wraps.jpg
@@ -23,7 +26,6 @@ ingredients:
 ---
 
 ## Instructions
-
 
 ![Beef Wraps](beef-wraps-step1.jpg)
 

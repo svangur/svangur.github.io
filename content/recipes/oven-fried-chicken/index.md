@@ -18,7 +18,5 @@ ingredients:
 
 ## Instructions
 
-
 - kjúlalæri 205c 20mín, flip 15 220c
-
 https://www.thecookierookie.com/baked-fried-chicken/

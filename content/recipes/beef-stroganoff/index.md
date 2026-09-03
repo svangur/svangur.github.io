@@ -9,6 +9,9 @@ cookTime: 5
 servings: 3
 nutrition:
   calories: 1156
+  protein: 65
+  fat: 47
+  sodium: 761
 tags: [dinner]
 cover:
   image: beef-stroganoff.jpg
@@ -32,10 +35,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] 
->  Gott að nota hvítvín
 
 1) Þurrka, Fork-a, krydda (salt og pipar) kjötið
 2) Steikja kjöt í ca. 2 mín. á hlið
@@ -65,3 +64,7 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - Gott að nota hvítvín

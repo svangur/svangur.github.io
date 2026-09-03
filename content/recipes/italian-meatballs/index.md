@@ -8,7 +8,10 @@ prepTime: 40
 cookTime: 40
 servings: 4
 nutrition:
-  calories: 950
+  calories: 949
+  protein: 51
+  fat: 39
+  sodium: 864
 tags: [dinner]
 cover:
   image: italian-meatballs.jpg
@@ -32,13 +35,7 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Ommm nommm
-
-# Mise en place
-
-   ![Italian meatballs](italian-meatballs-step1.jpg)
+![Italian meatballs](italian-meatballs-step1.jpg)
 
 
    ![Italian meatballs](italian-meatballs-step2.jpg)
@@ -64,4 +61,6 @@ ingredients:
 8)  Hella vatni af spagetti. Setja smá olíu og sósu frá kjötbollum og blanda vel.
 9)  Plate up!
 
-# Lifesum!IMG_3767.png
+## Tips
+
+> - Ommm nommm

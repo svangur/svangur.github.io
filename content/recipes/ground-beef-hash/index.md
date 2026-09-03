@@ -9,6 +9,9 @@ cookTime: 15
 servings: 3
 nutrition:
   calories: 1202
+  protein: 78
+  fat: 72
+  sodium: 244
 tags: [dinner]
 cover:
   image: ground-beef-hash.jpg
@@ -28,10 +31,6 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Frosti var ekki hrifin.
-
 1)  Potatoes Steikur kjúklingur með ofn kartöflum og pönnu sósu#Kartöflur
 2)  When potatoes are in the oven fry the ground beef and onions.
 3) When the beef cooked through, add garlic and tomato paste, mix and fry for a couple of minutes.
@@ -43,3 +42,7 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - Frosti var ekki hrifin.

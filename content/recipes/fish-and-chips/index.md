@@ -18,5 +18,4 @@ ingredients:
 
 ## Instructions
 
-
 Var soggy, þarf að steikja á hærri hita kannski ca. 190c

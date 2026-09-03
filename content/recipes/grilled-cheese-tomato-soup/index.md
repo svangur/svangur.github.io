@@ -18,9 +18,9 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Ommm nommm
-
 1) Top leftover soup with parsley and parmesan
 2) Serve with grilled cheese sandwich
+
+## Tips
+
+> - Ommm nommm

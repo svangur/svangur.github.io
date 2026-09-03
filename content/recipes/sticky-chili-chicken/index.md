@@ -18,5 +18,4 @@ ingredients:
 
 ## Instructions
 
-
 Hrísgrjón með sesam olíu og sesam fræjum

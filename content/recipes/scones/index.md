@@ -25,6 +25,5 @@ ingredients:
 
 ## Instructions
 
-
 # Magn
 - 6-7 stk

@@ -9,6 +9,8 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 954
+  protein: 41
+  fat: 36
 tags: [dinner]
 cover:
   image: korean-beef-bowl.jpg
@@ -31,10 +33,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] Gleymdi sesame fræjum
->  Toppa með chili crisp
 
 1)  Best að byrja á Pickled gúrka og gulrætur. Jafnvel dögum áður.
 2)  Blanda #Bulgogi Marinade. Gott að láta standa svo sykurinn leysist upp.
@@ -111,3 +109,7 @@ Sesame 2 tsp 10 gr
 
 
 # Lifesum
+
+## Tips
+
+> - Toppa með chili crisp

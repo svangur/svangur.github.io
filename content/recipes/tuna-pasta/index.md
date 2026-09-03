@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 - 1 dós tuna
 - Mayo 25gr
 - Sýrður 65gr

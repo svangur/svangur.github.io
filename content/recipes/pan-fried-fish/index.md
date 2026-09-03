@@ -9,6 +9,9 @@ cookTime: 15
 servings: 3
 nutrition:
   calories: 1002
+  protein: 39
+  fat: 69
+  sodium: 5
 tags: [dinner]
 cover:
   image: pan-fried-fish.jpg
@@ -24,10 +27,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] Tips, tricks & ideas
->  
 
 1) Boil potatoes for 15-20 mins
 2) Coat potatoes with olive oil (1-2 tbsp) and toss with salt + pepper

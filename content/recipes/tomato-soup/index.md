@@ -9,6 +9,9 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 1193
+  carbs: 128
+  fiber: 12
+  sugar: 13
 tags: [dinner, soup]
 cover:
   image: tomato-soup.jpg
@@ -37,9 +40,7 @@ ingredients:
 
 ## Instructions
 
-
 [See](https://www.youtube.com/watch?v=Q3CPURWTfhg)
-
 > [!info]
 > - OF HÁTT KCAL (bara eitt brauð næst) 
 > - Gleymdi kryddum

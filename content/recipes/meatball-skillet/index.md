@@ -18,7 +18,6 @@ ingredients:
 
 ## Instructions
 
-
 Gravy
 - 4tablespoon butter
 - 4 tbs floor
@@ -27,7 +26,6 @@ Gravy
 - Dijon
 - Sulta
 - Sósulitur
-
 Mashed potato
 1 kg kart
 3 tbsp butter

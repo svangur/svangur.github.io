@@ -9,6 +9,9 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 856
+  protein: 44
+  fat: 49
+  sodium: 7
 tags: [dinner]
 cover:
   image: greek-lemon-chicken.jpg
@@ -28,10 +31,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] Tips, tricks & ideas
-> - [See](https://www.sipandfeast.com/greek-lemon-chicken/#wprm-recipe-container-31743)
 
 1) Marinade chicken over night
 
@@ -63,3 +62,7 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - - [See](https://www.sipandfeast.com/greek-lemon-chicken/#wprm-recipe-container-31743)

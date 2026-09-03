@@ -9,6 +9,9 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 1042
+  protein: 47
+  fat: 60
+  sodium: 92
 tags: [dinner]
 cover:
   image: curry-fish.jpg
@@ -26,13 +29,11 @@ ingredients:
 
 ## Instructions
 
-
 > [!note] 
 > - Of mikil sósa
 > - Kannski sleppa rjóma
 > - Of mikill matur fyrir HRE
 > - Of mikill laukur fyrir RFR
-
 - Skola og þurrka fisk
 - Skera fisk í 2-3cm kubba
 - Setja fisk í eldfastmót og krydda með salt of pipar

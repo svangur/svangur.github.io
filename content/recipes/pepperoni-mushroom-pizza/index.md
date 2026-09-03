@@ -9,6 +9,9 @@ cookTime: 15
 servings: 1
 nutrition:
   calories: 1382
+  protein: 78
+  fat: 64
+  sodium: 889
 tags: [dinner]
 cover:
   image: pepperoni-mushroom-pizza.jpg
@@ -22,5 +25,6 @@ ingredients:
 
 ## Instructions
 
-
-# Lifesum
+1. Prepare ingredients as listed.
+2. Cook according to taste.
+3. Serve warm.

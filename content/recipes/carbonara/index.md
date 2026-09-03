@@ -9,6 +9,9 @@ cookTime: 5
 servings: 3
 nutrition:
   calories: 893
+  protein: 38
+  fat: 36
+  sodium: 2085
 tags: [dinner]
 cover:
   image: carbonara.jpg
@@ -22,10 +25,6 @@ ingredients:
 ---
 
 ## Instructions
-
-
-> [!tip] Tips, tricks & ideas
-> Hard in a small pan
 
 1)  Fry bacon
 2)  Start boiling pasta
@@ -49,3 +48,7 @@ ingredients:
    ![Carbonara](carbonara-step5.jpg)
 
 # Lifesum
+
+## Tips
+
+> - Hard in a small pan

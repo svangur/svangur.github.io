@@ -9,6 +9,9 @@ cookTime: 30
 servings: 4
 nutrition:
   calories: 1043
+  protein: 44
+  fat: 44
+  sodium: 172
 tags: [dinner]
 cover:
   image: bbq-burrito-bowl.jpg
@@ -34,7 +37,6 @@ ingredients:
 
 ## Instructions
 
-
 1) Pico de Gallo
 2) Sjóða 200gr. hrísgrjón
 3) Steikja hakk og krydda
@@ -43,5 +45,3 @@ ingredients:
 6) Bæta hrísgrjónum útí hakk og blanda vel
 7) Toppað með sýrðum, bbq sósu, pico de gallo, kál og gúrku
 8) Borið from með nachos
-
-# Lifesum!IMG_3805.png

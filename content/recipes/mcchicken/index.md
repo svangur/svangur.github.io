@@ -15,5 +15,4 @@ ingredients:
 
 ## Instructions
 
-
 https://www.joshuaweissman.com/post/mcchicken

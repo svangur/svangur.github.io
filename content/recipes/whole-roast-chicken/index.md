@@ -18,10 +18,8 @@ ingredients:
 
 ## Instructions
 
-
 Spatchcock (kenji)
 Dry brine 2 table sp salt 2 teasppon baking powder
 Mayo herb mix
-
 225c 35min
 190c 15mín

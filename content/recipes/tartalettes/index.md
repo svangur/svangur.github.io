@@ -9,6 +9,9 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 215
+  protein: 9
+  fat: 13
+  sodium: 1
 tags: [dinner]
 cover:
   image: tartalettes.jpg
@@ -27,5 +30,6 @@ ingredients:
 
 ## Instructions
 
-
-# Lifesum
+1. Prepare ingredients as listed.
+2. Cook according to taste.
+3. Serve warm.

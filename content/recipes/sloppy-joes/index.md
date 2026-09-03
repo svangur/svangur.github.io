@@ -9,6 +9,9 @@ cookTime: 15
 servings: 5
 nutrition:
   calories: 589
+  protein: 30
+  fat: 23
+  sodium: 869
 tags: [dinner]
 cover:
   image: sloppy-joes.jpg
@@ -31,13 +34,7 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Næst enga papriku! Frosti hatar það :/
-# Mise en place
-
-
-   ![Sloppy Joes](sloppy-joes-step3.jpg)
+![Sloppy Joes](sloppy-joes-step3.jpg)
 
 
    ![Sloppy Joes](sloppy-joes-step4.jpg)
@@ -52,3 +49,7 @@ ingredients:
    ![Sloppy Joes](sloppy-joes-step7.jpg)
 
 # Lifesum
+
+## Tips
+
+> - Næst enga papriku! Frosti hatar það :/

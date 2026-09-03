@@ -15,7 +15,6 @@ ingredients:
 
 ## Instructions
 
-
 Balsmati
 250 gr.
 500 gr. Vatn

@@ -9,6 +9,8 @@ cookTime: 30
 servings: 1
 nutrition:
   calories: 765
+  protein: 54
+  fat: 37
 tags: [dinner]
 cover:
   image: beef-refried-bean-quesadilla.jpg
@@ -23,11 +25,11 @@ ingredients:
   - "Iceberg 50 gr."
   - "Refried beans 70g"
   - "Sýður 60g"
+  - "--- Optional ---"
   - "Cholula (hot sauce)"
 ---
 
 ## Instructions
-
 
 ![Quesadilla with ground beef and refried beans](beef-refried-bean-quesadilla-step1.jpg)
 

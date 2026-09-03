@@ -8,7 +8,10 @@ prepTime: 40
 cookTime: 20
 servings: 6
 nutrition:
-  calories: 760
+  calories: 759
+  protein: 44
+  fat: 19
+  sodium: 783
 tags: [dinner]
 cover:
   image: bolognese-spaghetti.jpg
@@ -35,19 +38,16 @@ ingredients:
   - "Sweet paprika"
   - "Herb de provence"
   - "Salt & Pepper"
+  - "Mirepoix"
+  - "!IMG_3824.jpeg"
+mealprep:
+  yields: "1400 gr."
+  fridge: "3–4 days"
+  freezer: "2–3 months"
 ---
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> - Dry pasta: 370gr -> Cooked 790gr.
-> 	-	~ 250gr. cooked pasta per/portion
-> - 233gr.  Bolognese per/portion
-
-# Mise en place
-- Mirepoix
-- !IMG_3824.jpeg
 1) Cut vegetables
 2) Sauté onions in 1 tbsp. oil for ~5mins.
 3) Add carrots & celery and sauté for another ~5mins.
@@ -77,3 +77,9 @@ ingredients:
 2) Serve topped with parmesan (NOT optional) and parsley (optional)
  
 # Lifesum
+
+## Tips
+
+> - - Dry pasta: 370gr - Cooked 790gr.
+> - -	~ 250gr. cooked pasta per/portion
+> - - 233gr.  Bolognese per/portion

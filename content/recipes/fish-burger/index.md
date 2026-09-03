@@ -8,7 +8,10 @@ prepTime: 20
 cookTime: 25
 servings: 1
 nutrition:
-  calories: 1016
+  calories: 1103
+  protein: 36
+  fat: 67
+  sodium: 2499
 tags: [dinner]
 cover:
   image: fish-burger.jpg
@@ -25,15 +28,7 @@ ingredients:
 
 ## Instructions
 
-
 # !IMG_3780.jpeg
-
-
-> [!tip] Tips, tricks & ideas
->  
-
 1)  Boil potatoes for 15-20 mins
 2)  Coat potatoes with olive oil (1-2 tbsp) and toss with salt + pepper
 3)  Place fish patty and potatoes on oven tray and bake at 200c for +20mins
-
-# Lifesum!IMG_3784.png

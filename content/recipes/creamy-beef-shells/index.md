@@ -18,11 +18,8 @@ ingredients:
 
 ## Instructions
 
-
 #!IMG_4965.jpeg
-
 https://www.sipandfeast.com/creamy-beef-shells/
-
 1 skammtur bolgonese ~700gr.
 100 gr parmesan
 1/2 sýrður

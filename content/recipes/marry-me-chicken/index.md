@@ -9,6 +9,9 @@ cookTime: 30
 servings: 3
 nutrition:
   calories: 944
+  protein: 74
+  fat: 22
+  sodium: 140
 tags: [dinner]
 cover:
   image: marry-me-chicken.jpg
@@ -25,6 +28,7 @@ ingredients:
   - "Basil (20-30 bl)"
   - "hrísgrjón 300gr (100gr/person)"
   - "Olía 10 gr."
+  - "--- Optional (hef ekki prufað) ---"
   - "Dijon"
   - "Oregano"
   - "lemon (acid)"
@@ -32,15 +36,7 @@ ingredients:
 
 ## Instructions
 
-
 [See](https://www.youtube.com/watch?v=zq8_YSxFlKM)
-
->[!tip] Notes
-> -  Minni sósu fyrir RFR næst
-> -  Gera 2x sósu og frysta
-> -  Nota sýrðan í staðinn fyrir rjóma
-> 	- Oftar til, nýtist og færri kcal
-
 
    ![Marry me chicken](marry-me-chicken-step1.jpg)
 
@@ -67,3 +63,10 @@ ingredients:
 6) Sósuna aftur í pönnuna bæta við parmesan og rjóma
 7) Restina af basil rétt í endann.
 ## Lifesum
+
+## Tips
+
+> - -  Minni sósu fyrir RFR næst
+> - -  Gera 2x sósu og frysta
+> - -  Nota sýrðan í staðinn fyrir rjóma
+> - - Oftar til, nýtist og færri kcal

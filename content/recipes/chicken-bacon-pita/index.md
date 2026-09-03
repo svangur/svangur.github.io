@@ -9,6 +9,9 @@ cookTime: 15
 servings: 1
 nutrition:
   calories: 967
+  protein: 51
+  fat: 58
+  sodium: 901
 tags: [dinner]
 cover:
   image: chicken-bacon-pita.jpg
@@ -27,12 +30,7 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Ommm nommm
-
-
-   ![Pita with chicken and bacon](chicken-bacon-pita-step1.jpg)
+![Pita with chicken and bacon](chicken-bacon-pita-step1.jpg)
 
 1) 3 pieces of bacon per pita oven 200C 15min
 
@@ -55,3 +53,7 @@ ingredients:
 5) Heat bread of 3-4 mins per side.
 
 # Lifesum
+
+## Tips
+
+> - Ommm nommm

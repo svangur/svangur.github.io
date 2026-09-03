@@ -29,11 +29,6 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] Tips, tricks & ideas
-> Betra að sleppa beikoni
-
-# Mise en place
 1)  Steikja lauk
 2)  Steikja hakk
 3) Hita brauð í ofni ~ 200C í 3-5 mín
@@ -41,3 +36,7 @@ ingredients:
 
 
 # Lifesum
+
+## Tips
+
+> - Betra að sleppa beikoni

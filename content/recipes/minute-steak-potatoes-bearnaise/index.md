@@ -8,7 +8,10 @@ prepTime: 20
 cookTime: 25
 servings: 3
 nutrition:
-  calories: 1250
+  calories: 1249
+  protein: 53
+  fat: 91
+  sodium: 121
 tags: [dinner]
 cover:
   image: minute-steak-potatoes-bearnaise.jpg
@@ -21,11 +24,11 @@ ingredients:
 
 ## Instructions
 
-
-> [!tip] 
-> Steak fries næst?
-
 1) Kartöflur Ofn kartöflur
 2) Þegar það eru ~ 10 mín eftir af kartöflum byrja að steikja kjöt ~1.5 - 2 mín á hlið
 
 ## Lifesum
+
+## Tips
+
+> - Steak fries næst?

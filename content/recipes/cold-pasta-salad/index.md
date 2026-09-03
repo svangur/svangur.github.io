@@ -9,6 +9,8 @@ cookTime: 30
 servings: 4
 nutrition:
   calories: 1032
+  protein: 65
+  fat: 51
 tags: [dinner]
 cover:
   image: cold-pasta-salad.jpg
@@ -33,9 +35,7 @@ ingredients:
 
 ## Instructions
 
-
 [See](https://www.youtube.com/watch?v=lkDat_Map10)
-
 > [!info]
 > - update lifesum!
 > - Ég notaði aðeins minna pasta (átti ekki meira)

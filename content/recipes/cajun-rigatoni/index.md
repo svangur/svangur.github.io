@@ -18,7 +18,5 @@ ingredients:
 
 ## Instructions
 
-
 https://www.allrecipes.com/recipe/149221/cajun-spice-mix/
-
 https://youtu.be/_U9DNlw80W0?si=lYeRG1-7SqxE-39g

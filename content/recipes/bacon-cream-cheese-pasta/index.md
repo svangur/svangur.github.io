@@ -18,9 +18,7 @@ ingredients:
 
 ## Instructions
 
-
 ![!IMG_3605.jpeg]
-
 Beikon 100-150gr
 Papriku smurostur 1/3 pakki
 2 hvítlauk

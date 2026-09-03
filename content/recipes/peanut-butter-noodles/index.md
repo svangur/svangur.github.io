@@ -9,6 +9,9 @@ cookTime: 30
 servings: 2
 nutrition:
   calories: 842
+  protein: 36
+  fat: 44
+  sodium: 95
 tags: [dinner]
 cover:
   image: peanut-butter-noodles.jpg
@@ -16,10 +19,12 @@ cover:
 ingredients:
   - "Kjúlkingalæri 4 stykki  350 -400 gr."
   - "Núðlur 250 gr.  (ca. 80-90 gr/mann)"
+  - "--- Aromatics & garnish (2 portion) ---"
   - "2-3 vorlaukur 50 gr."
   - "3 hvítlaukur (10g)"
   - "Engifer (6 gr)"
   - "Peanut (20 gr.)"
+  - "--- Peanut butter sósa (Portion) ---"
   - "Creamy peanut butter 3tbsp ( 50 gr)"
   - "Soya sause 1 tbsp (12 gr)"
   - "Oyster sause 1 tbsp (12 gr)"
@@ -31,12 +36,9 @@ ingredients:
 
 ## Instructions
 
-
 > [!info]
 > - Frosta fannst peanut butter sósan ekki góð
-
 [See](https://aaronandclaire.com/peanut-butter-noodles/)
-
 - Krydda kjúklingalæri með salt og pipar
 - Setja á ofnplötu
 - Elda í 200c ofni i ca. 30 mín

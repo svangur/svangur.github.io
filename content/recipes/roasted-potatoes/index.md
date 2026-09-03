@@ -18,7 +18,6 @@ ingredients:
 
 ## Instructions
 
-
 ## Kartöflur
 - Skera í 1cm3 kubba
 - Sjóða í söltu vatni ca. 15 mín
